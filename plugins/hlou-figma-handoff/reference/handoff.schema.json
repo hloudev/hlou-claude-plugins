@@ -1,0 +1,363 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hlou.app/schemas/handoff/v1.json",
+  "title": "Hlou handoff bundle manifest (hlou-handoff.json), v1",
+  "type": "object",
+  "properties": {
+    "hlou": {
+      "type": "number",
+      "const": 1
+    },
+    "format": {
+      "type": "string",
+      "const": "figma-handoff"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "tool": {
+          "type": "string"
+        },
+        "fileKey": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "exportedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+        },
+        "generator": {
+          "type": "string"
+        }
+      },
+      "required": ["tool", "fileName", "exportedAt", "generator"]
+    },
+    "locale": {
+      "type": "string"
+    },
+    "pages": {
+      "maxItems": 24,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "maxLength": 60,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "html": {
+            "type": "string"
+          },
+          "render": {
+            "type": "string"
+          },
+          "frameId": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "nodeId": {
+                  "type": "string"
+                },
+                "hints": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": ["id", "name"]
+            }
+          }
+        },
+        "required": ["slug", "title", "html", "width", "sections"]
+      }
+    },
+    "flows": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,31}$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "steps": {
+            "minItems": 2,
+            "maxItems": 8,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]{0,31}$"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "string",
+                  "maxLength": 60,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                }
+              },
+              "required": ["id", "label", "page"]
+            }
+          }
+        },
+        "required": ["key", "label", "steps"]
+      }
+    },
+    "overlays": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,31}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["menu", "modal", "drawer"]
+          },
+          "page": {
+            "type": "string",
+            "maxLength": 60,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "trigger": {
+            "type": "string"
+          }
+        },
+        "required": ["key", "kind", "page"]
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "colors": {
+          "maxItems": 32,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string",
+                "pattern": "^#[0-9a-f]{6}([0-9a-f]{2})?$"
+              },
+              "usage": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": ["name", "value"]
+          }
+        },
+        "fonts": {
+          "maxItems": 8,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "family": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": ["google", "file", "unknown"]
+              },
+              "weights": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                }
+              },
+              "styles": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["normal", "italic"]
+                }
+              },
+              "files": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": ["family", "source", "weights"]
+          }
+        },
+        "text": {
+          "maxItems": 24,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "family": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "weight": {
+                "type": "number"
+              },
+              "lineHeight": {
+                "type": "number"
+              },
+              "letterSpacing": {
+                "type": "number"
+              }
+            },
+            "required": ["name", "family", "size", "weight"]
+          }
+        }
+      },
+      "required": ["colors", "fonts"]
+    },
+    "assets": {
+      "maxItems": 400,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["image", "svg", "font"]
+          },
+          "role": {
+            "type": "string",
+            "enum": ["logo", "icon", "photo", "illustration", "background", "font"]
+          },
+          "nodeId": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "height": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "phosphor": {
+            "type": "string"
+          }
+        },
+        "required": ["ref", "path", "kind", "role"]
+      }
+    },
+    "collections": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,31}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]{0,31}$"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": ["key", "label", "type"]
+            }
+          },
+          "records": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {}
+            }
+          }
+        },
+        "required": ["key", "name", "fields", "records"]
+      }
+    },
+    "notes": {
+      "default": [],
+      "maxItems": 40,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["hlou", "format", "source", "pages", "tokens", "assets"]
+}

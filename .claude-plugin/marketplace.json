@@ -1,0 +1,19 @@
+{
+  "name": "hlou-claude-plugins",
+  "owner": {
+    "name": "Hlou"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for building websites with Hlou."
+  },
+  "plugins": [
+    {
+      "name": "hlou-figma-handoff",
+      "source": "./plugins/hlou-figma-handoff",
+      "description": "Turn a Figma design into a Hlou handoff bundle (a .zip the Hlou agent builds a site from), through the Figma MCP.",
+      "version": "1.0.1",
+      "license": "MIT",
+      "keywords": ["hlou", "figma", "handoff", "design-to-code", "website"]
+    }
+  ]
+}

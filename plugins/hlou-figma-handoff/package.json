@@ -1,0 +1,14 @@
+{
+  "name": "hlou-figma-handoff",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Scripts of the hlou-figma-handoff Claude Code plugin. No dependencies.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

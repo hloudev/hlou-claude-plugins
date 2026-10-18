@@ -1,0 +1,51 @@
+<canvas id="0:1" name="Maison Exemple" x="0" y="0" width="0" height="0">
+  <text id="9:1" name="Note : penser à la page Presse" x="-600" y="0" width="400" height="40" />
+  <frame id="10:1" name="Accueil" x="0" y="0" width="1440" height="2400">
+    <rounded-rectangle id="10:2" name="photo façade" x="0" y="0" width="1440" height="800" />
+    <rounded-rectangle id="10:3" name="photo jardin" x="0" y="0" width="1440" height="800" hidden="true" />
+    <rounded-rectangle id="10:4" name="photo salon" x="1" y="0" width="1441" height="800" hidden="true" />
+    <frame id="10:5" name="Logo" x="80" y="32" width="160" height="60">
+      <frame id="10:6" name="Group 1" x="80" y="32" width="60" height="60" />
+      <frame id="10:7" name="Group 2" x="150" y="50" width="90" height="24" />
+    </frame>
+    <text id="10:8" name="Réserver" x="1240" y="48" width="100" height="24" />
+    <frame id="10:9" name="Frame" x="1360" y="44" width="32" height="32" />
+    <frame id="10:10" name="Chambres" x="80" y="1000" width="1280" height="600">
+      <frame id="10:11" name="Carte 1" x="0" y="0" width="400" height="560">
+        <rounded-rectangle id="10:12" name="image" x="0" y="0" width="400" height="300" />
+        <text id="10:13" name="Chambre Atlas" x="0" y="320" width="400" height="40" />
+      </frame>
+      <frame id="10:14" name="Carte 2" x="440" y="0" width="400" height="580">
+        <rounded-rectangle id="10:15" name="image" x="0" y="0" width="400" height="300" />
+        <text id="10:16" name="Suite Jardin" x="0" y="320" width="400" height="40" />
+      </frame>
+      <frame id="10:17" name="Carte 3" x="880" y="0" width="401" height="560">
+        <rounded-rectangle id="10:18" name="image" x="0" y="0" width="400" height="300" />
+        <text id="10:19" name="Chambre Patio &amp; Terrasse" x="0" y="320" width="400" height="40" />
+      </frame>
+    </frame>
+    <frame id="10:20" name="section/footer Pied de page" x="0" y="2000" width="1440" height="400">
+      <text id="10:21" name="contact@example.com" x="80" y="80" width="300" height="24" />
+    </frame>
+  </frame>
+  <frame id="20:1" name="Dates" x="2000" y="0" width="1440" height="1200">
+    <text id="20:2" name="Retour au site" x="80" y="40" width="160" height="24" />
+    <text id="20:3" name="ÉTAPE 1 SUR 2" x="80" y="240" width="160" height="24" />
+    <text id="20:4" name="Vos dates" x="80" y="280" width="600" height="60" />
+  </frame>
+  <frame id="21:1" name="Coordonnées" x="3600" y="0" width="1440" height="1200">
+    <text id="21:2" name="Retour au site" x="80" y="40" width="160" height="24" />
+    <text id="21:3" name="ÉTAPE 2 SUR 2" x="80" y="240" width="160" height="24" />
+    <text id="21:4" name="Vos coordonnées" x="80" y="280" width="600" height="60" />
+  </frame>
+  <frame id="30:1" name="Menu" x="0" y="-1200" width="1440" height="900">
+    <frame id="30:2" name="Fermer" x="1360" y="40" width="40" height="40" />
+    <text id="30:3" name="Accueil" x="600" y="200" width="200" height="50" />
+    <text id="30:4" name="Chambres" x="600" y="280" width="200" height="50" />
+    <text id="30:5" name="Table" x="600" y="360" width="200" height="50" />
+    <text id="30:6" name="Contact" x="600" y="440" width="200" height="50" />
+  </frame>
+  <frame id="40:1" name="accueil" x="6000" y="0" width="1440" height="900">
+    <text id="40:2" name="Ancienne version" x="80" y="400" width="400" height="40" />
+  </frame>
+</canvas>

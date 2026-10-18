@@ -1,0 +1,347 @@
+{
+  "page": {
+    "id": "0:1",
+    "name": "Maison Exemple"
+  },
+  "frames": [
+    {
+      "id": "10:1",
+      "name": "Accueil",
+      "width": 1440,
+      "height": 2400,
+      "markers": {
+        "kind": null,
+        "key": null,
+        "n": null,
+        "flags": [],
+        "label": "Accueil"
+      },
+      "children": 8,
+      "header": ["Réserver"],
+      "headerSignature": "réserver",
+      "step": null,
+      "bands": [
+        {
+          "top": 32,
+          "bottom": 92,
+          "header": true,
+          "ids": ["10:5", "10:9", "10:8"],
+          "label": "Réserver",
+          "hidden": []
+        },
+        {
+          "top": 0,
+          "bottom": 800,
+          "ids": ["10:2", "10:3", "10:4"],
+          "label": "photo façade",
+          "hidden": ["10:3", "10:4"]
+        },
+        {
+          "top": 1000,
+          "bottom": 1600,
+          "ids": ["10:10"],
+          "label": "Chambre Atlas",
+          "hidden": []
+        },
+        {
+          "top": 2000,
+          "bottom": 2400,
+          "ids": ["10:20"],
+          "label": "contact@example.com",
+          "hidden": []
+        }
+      ],
+      "hiddenSiblings": [
+        {
+          "parentId": "10:1",
+          "parentName": "Accueil",
+          "width": 1440,
+          "height": 800,
+          "ids": ["10:2", "10:3", "10:4"],
+          "hidden": ["10:3", "10:4"]
+        }
+      ],
+      "vectorGroups": [
+        {
+          "id": "10:5",
+          "name": "Logo",
+          "width": 160,
+          "height": 60,
+          "leaves": 2
+        }
+      ],
+      "icons": ["10:9 32×32"],
+      "repeated": [
+        {
+          "parentId": "10:10",
+          "parentName": "Chambres",
+          "width": 400,
+          "ids": ["10:11", "10:14", "10:17"],
+          "names": ["Carte 1", "Carte 2", "Carte 3"]
+        }
+      ],
+      "flagged": [
+        {
+          "id": "10:20",
+          "name": "section/footer Pied de page",
+          "markers": {
+            "kind": "section",
+            "key": "footer",
+            "n": null,
+            "flags": [],
+            "label": "Pied de page"
+          }
+        }
+      ],
+      "texts": 5,
+      "shortTexts": 5,
+      "topRightSquare": ["10:9"]
+    },
+    {
+      "id": "20:1",
+      "name": "Dates",
+      "width": 1440,
+      "height": 1200,
+      "markers": {
+        "kind": null,
+        "key": null,
+        "n": null,
+        "flags": [],
+        "label": "Dates"
+      },
+      "children": 3,
+      "header": ["Retour au site"],
+      "headerSignature": "retour au site",
+      "step": {
+        "n": 1,
+        "of": 2,
+        "text": "ÉTAPE 1 SUR 2",
+        "id": "20:3"
+      },
+      "bands": [
+        {
+          "top": 40,
+          "bottom": 64,
+          "header": true,
+          "ids": ["20:2"],
+          "label": "Retour au site",
+          "hidden": []
+        },
+        {
+          "top": 240,
+          "bottom": 264,
+          "ids": ["20:3"],
+          "label": "ÉTAPE 1 SUR 2",
+          "hidden": []
+        },
+        {
+          "top": 280,
+          "bottom": 340,
+          "ids": ["20:4"],
+          "label": "Vos dates",
+          "hidden": []
+        }
+      ],
+      "hiddenSiblings": [],
+      "vectorGroups": [],
+      "icons": [],
+      "repeated": [],
+      "flagged": [],
+      "texts": 3,
+      "shortTexts": 3,
+      "topRightSquare": []
+    },
+    {
+      "id": "21:1",
+      "name": "Coordonnées",
+      "width": 1440,
+      "height": 1200,
+      "markers": {
+        "kind": null,
+        "key": null,
+        "n": null,
+        "flags": [],
+        "label": "Coordonnées"
+      },
+      "children": 3,
+      "header": ["Retour au site"],
+      "headerSignature": "retour au site",
+      "step": {
+        "n": 2,
+        "of": 2,
+        "text": "ÉTAPE 2 SUR 2",
+        "id": "21:3"
+      },
+      "bands": [
+        {
+          "top": 40,
+          "bottom": 64,
+          "header": true,
+          "ids": ["21:2"],
+          "label": "Retour au site",
+          "hidden": []
+        },
+        {
+          "top": 240,
+          "bottom": 264,
+          "ids": ["21:3"],
+          "label": "ÉTAPE 2 SUR 2",
+          "hidden": []
+        },
+        {
+          "top": 280,
+          "bottom": 340,
+          "ids": ["21:4"],
+          "label": "Vos coordonnées",
+          "hidden": []
+        }
+      ],
+      "hiddenSiblings": [],
+      "vectorGroups": [],
+      "icons": [],
+      "repeated": [],
+      "flagged": [],
+      "texts": 3,
+      "shortTexts": 3,
+      "topRightSquare": []
+    },
+    {
+      "id": "30:1",
+      "name": "Menu",
+      "width": 1440,
+      "height": 900,
+      "markers": {
+        "kind": null,
+        "key": null,
+        "n": null,
+        "flags": [],
+        "label": "Menu"
+      },
+      "children": 5,
+      "header": [],
+      "headerSignature": "",
+      "step": null,
+      "bands": [
+        {
+          "top": 40,
+          "bottom": 80,
+          "header": true,
+          "ids": ["30:2"],
+          "label": "Fermer",
+          "hidden": []
+        },
+        {
+          "top": 200,
+          "bottom": 250,
+          "ids": ["30:3"],
+          "label": "Accueil",
+          "hidden": []
+        },
+        {
+          "top": 280,
+          "bottom": 330,
+          "ids": ["30:4"],
+          "label": "Chambres",
+          "hidden": []
+        },
+        {
+          "top": 360,
+          "bottom": 410,
+          "ids": ["30:5"],
+          "label": "Table",
+          "hidden": []
+        },
+        {
+          "top": 440,
+          "bottom": 490,
+          "ids": ["30:6"],
+          "label": "Contact",
+          "hidden": []
+        }
+      ],
+      "hiddenSiblings": [],
+      "vectorGroups": [],
+      "icons": ["30:2 40×40"],
+      "repeated": [],
+      "flagged": [],
+      "texts": 4,
+      "shortTexts": 4,
+      "topRightSquare": ["30:2"]
+    },
+    {
+      "id": "40:1",
+      "name": "accueil",
+      "width": 1440,
+      "height": 900,
+      "markers": {
+        "kind": null,
+        "key": null,
+        "n": null,
+        "flags": [],
+        "label": "accueil"
+      },
+      "children": 1,
+      "header": [],
+      "headerSignature": "",
+      "step": null,
+      "bands": [
+        {
+          "top": 400,
+          "bottom": 440,
+          "ids": ["40:2"],
+          "label": "Ancienne version",
+          "hidden": []
+        }
+      ],
+      "hiddenSiblings": [],
+      "vectorGroups": [],
+      "icons": [],
+      "repeated": [],
+      "flagged": [],
+      "texts": 1,
+      "shortTexts": 1,
+      "topRightSquare": []
+    }
+  ],
+  "duplicateNames": [
+    {
+      "name": "accueil",
+      "ids": ["10:1", "40:1"]
+    }
+  ],
+  "outside": [
+    {
+      "id": "9:1",
+      "type": "text",
+      "name": "Note : penser à la page Presse",
+      "width": 400,
+      "height": 40
+    }
+  ],
+  "flowCandidates": [
+    {
+      "reason": "step text",
+      "of": 2,
+      "sharedHeader": true,
+      "steps": [
+        {
+          "n": 1,
+          "frameId": "20:1",
+          "name": "Dates"
+        },
+        {
+          "n": 2,
+          "frameId": "21:1",
+          "name": "Coordonnées"
+        }
+      ]
+    }
+  ],
+  "overlayCandidates": [
+    {
+      "frameId": "30:1",
+      "name": "Menu",
+      "reason": "short links + close glyph top right"
+    }
+  ]
+}

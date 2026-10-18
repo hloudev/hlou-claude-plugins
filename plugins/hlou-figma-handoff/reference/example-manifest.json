@@ -1,0 +1,212 @@
+{
+  "hlou": 1,
+  "format": "figma-handoff",
+  "source": {
+    "tool": "figma",
+    "fileKey": "fixtureFileKey0001",
+    "fileName": "Dar — minimal fixture",
+    "exportedAt": "2026-10-18T09:30:00+01:00",
+    "generator": "hlou-figma-handoff@1.0.0"
+  },
+  "locale": "fr",
+  "pages": [
+    {
+      "slug": "home",
+      "title": "Accueil",
+      "html": "pages/home.html",
+      "render": "renders/home.png",
+      "frameId": "1:2",
+      "width": 1440,
+      "sections": [
+        {
+          "id": "header",
+          "name": "Header",
+          "role": "header",
+          "nodeId": "1:3",
+          "hints": ["menu-trigger"]
+        },
+        {
+          "id": "hero",
+          "name": "Hero",
+          "role": "hero",
+          "nodeId": "1:4",
+          "hints": ["slider", "hidden-siblings:2"]
+        },
+        {
+          "id": "rooms",
+          "name": "Rooms",
+          "role": "list",
+          "nodeId": "1:5",
+          "hints": ["collection:rooms"]
+        }
+      ]
+    },
+    {
+      "slug": "booking-1",
+      "title": "Réserver — dates",
+      "html": "pages/booking-1.html",
+      "frameId": "2:1",
+      "width": 1440,
+      "sections": [
+        {
+          "id": "steps",
+          "name": "Dates",
+          "hints": ["steps", "form", "booking-bar"]
+        }
+      ]
+    },
+    {
+      "slug": "booking-2",
+      "title": "Réserver — coordonnées",
+      "html": "pages/booking-2.html",
+      "frameId": "3:1",
+      "width": 1440,
+      "sections": [
+        {
+          "id": "steps",
+          "name": "Details",
+          "hints": ["steps", "form", "summary"]
+        }
+      ]
+    },
+    {
+      "slug": "menu",
+      "title": "Menu",
+      "html": "pages/menu.html",
+      "frameId": "4:1",
+      "width": 1440,
+      "sections": [
+        {
+          "id": "menu",
+          "name": "Menu",
+          "role": "nav"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "key": "booking",
+      "label": "Réservation",
+      "steps": [
+        {
+          "id": "dates",
+          "label": "Dates",
+          "page": "booking-1"
+        },
+        {
+          "id": "details",
+          "label": "Coordonnées",
+          "page": "booking-2"
+        }
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "key": "menu",
+      "kind": "menu",
+      "page": "menu",
+      "trigger": "header"
+    }
+  ],
+  "tokens": {
+    "colors": [
+      {
+        "name": "Forest",
+        "value": "#1f3a2e",
+        "usage": 42
+      },
+      {
+        "name": "Sand",
+        "value": "#f4eee6",
+        "usage": 30
+      }
+    ],
+    "fonts": [
+      {
+        "family": "Cormorant Garamond",
+        "source": "google",
+        "weights": [400, 600],
+        "styles": ["normal", "italic"]
+      },
+      {
+        "family": "KaTeX Size3",
+        "source": "file",
+        "weights": [400],
+        "files": ["assets/display.woff2"]
+      }
+    ],
+    "text": [
+      {
+        "name": "Display",
+        "family": "Cormorant Garamond",
+        "size": 56,
+        "weight": 600,
+        "lineHeight": 1.1,
+        "letterSpacing": -0.5
+      }
+    ]
+  },
+  "assets": [
+    {
+      "ref": "logo",
+      "path": "assets/logo.svg",
+      "kind": "svg",
+      "role": "logo",
+      "nodeId": "1:6",
+      "alt": "Dar",
+      "width": 174,
+      "height": 75
+    },
+    {
+      "ref": "hero",
+      "path": "assets/hero.png",
+      "kind": "image",
+      "role": "photo",
+      "nodeId": "1:7",
+      "alt": "La cour",
+      "width": 16,
+      "height": 10
+    },
+    {
+      "ref": "display-font",
+      "path": "assets/display.woff2",
+      "kind": "font",
+      "role": "font"
+    }
+  ],
+  "collections": [
+    {
+      "key": "rooms",
+      "name": "Chambres",
+      "source": "1:5",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Nom",
+          "type": "text"
+        },
+        {
+          "key": "guests",
+          "label": "Personnes",
+          "type": "number"
+        }
+      ],
+      "records": [
+        {
+          "name": "Chambre Atlas",
+          "guests": 2
+        },
+        {
+          "name": "Suite Medina",
+          "guests": 4
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The hero has two hidden slides behind the visible one.",
+    "assets/display.woff2 is KaTeX_Size3-Regular from KaTeX (MIT), a stand-in for a designer font."
+  ]
+}
