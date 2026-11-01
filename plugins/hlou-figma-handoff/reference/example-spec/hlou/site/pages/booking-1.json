@@ -1,0 +1,62 @@
+{
+  "$schema": "../../../renderer/spec/json-schema/page.schema.json",
+  "path": "/booking-1",
+  "title": "Réserver — dates",
+  "parent": "home",
+  "status": "ready",
+  "position": 1,
+  "sections": [
+    {
+      "key": "steps",
+      "label": "Dates",
+      "slots": [
+        { "key": "steps.step", "kind": "text" },
+        { "key": "steps.title", "kind": "heading" }
+      ]
+    }
+  ],
+  "document": {
+    "root": "root",
+    "rootProps": {},
+    "nodes": {
+      "root": {
+        "id": "root",
+        "type": "root",
+        "parent": null,
+        "slot": "",
+        "order": "a0",
+        "props": {}
+      },
+      "instance:header": {
+        "id": "instance:header",
+        "type": "instance",
+        "parent": "root",
+        "slot": "content",
+        "order": "a0",
+        "props": {},
+        "instanceOf": "header"
+      },
+      "steps-booking-1": {
+        "id": "steps-booking-1",
+        "type": "pageHeader",
+        "parent": "root",
+        "slot": "content",
+        "order": "a1",
+        "section": "steps",
+        "props": {
+          "eyebrow": { "$slot": "steps.step" },
+          "title": { "$slot": "steps.title" }
+        }
+      },
+      "instance:footer": {
+        "id": "instance:footer",
+        "type": "instance",
+        "parent": "root",
+        "slot": "content",
+        "order": "a2",
+        "props": {},
+        "instanceOf": "footer"
+      }
+    }
+  }
+}

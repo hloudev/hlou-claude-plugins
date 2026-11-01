@@ -1,0 +1,102 @@
+{
+  "$schema": "../../renderer/spec/json-schema/site.schema.json",
+  "format": 1,
+  "project": { "sourceLocale": "fr" },
+  "locales": [{ "code": "fr" }],
+  "theme": {
+    "colors": [
+      { "key": "paper", "label": "Sand", "value": "#f4eee6" },
+      { "key": "ink", "label": "Forest", "value": "#1f3a2e" },
+      { "key": "accent", "label": "Forest", "value": "#1f3a2e" }
+    ],
+    "fonts": [
+      {
+        "key": "heading",
+        "source": "google",
+        "family": "Cormorant Garamond",
+        "weights": [400, 600]
+      },
+      { "key": "body", "source": "google", "family": "Cormorant Garamond", "weights": [400] },
+      {
+        "key": "display",
+        "label": "Display",
+        "source": "custom",
+        "family": "KaTeX Size3",
+        "src": "/media/dar-minimal-fixture/display.woff2",
+        "weights": [400]
+      }
+    ]
+  },
+  "components": [
+    {
+      "key": "header",
+      "name": "Header",
+      "kind": "header",
+      "document": {
+        "root": "root",
+        "rootProps": {},
+        "nodes": {
+          "root": {
+            "id": "root",
+            "type": "root",
+            "parent": null,
+            "slot": "",
+            "order": "a0",
+            "props": {}
+          },
+          "header-site": {
+            "id": "header-site",
+            "type": "header",
+            "parent": "root",
+            "slot": "content",
+            "order": "a0",
+            "role": "header",
+            "props": {
+              "logo": { "$slot": "site/nav.logo" },
+              "logoMedia": { "$slot": "site/site.logoImage" },
+              "links": { "$slot": "site/nav.links" },
+              "ctaLabel": { "$slot": "site/nav.cta" },
+              "ctaHref": "/booking-1",
+              "sticky": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "footer",
+      "name": "Footer",
+      "kind": "footer",
+      "document": {
+        "root": "root",
+        "rootProps": {},
+        "nodes": {
+          "root": {
+            "id": "root",
+            "type": "root",
+            "parent": null,
+            "slot": "",
+            "order": "a0",
+            "props": {}
+          },
+          "footer-site": {
+            "id": "footer-site",
+            "type": "footer",
+            "parent": "root",
+            "slot": "content",
+            "order": "a0",
+            "role": "footer",
+            "props": { "groups": [], "legal": { "$slot": "site/footer.legal" }, "theme": "ink" }
+          }
+        }
+      }
+    }
+  ],
+  "slots": [
+    { "key": "nav.logo", "kind": "text" },
+    { "key": "nav.links", "kind": "navigation", "localizable": false },
+    { "key": "nav.cta", "kind": "text" },
+    { "key": "footer.legal", "kind": "text" },
+    { "key": "site.logoImage", "kind": "media" }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../renderer/spec/json-schema/content.schema.json",
+  "values": {
+    "site/nav.logo": { "kind": "text", "text": "Dar" },
+    "site/nav.links": {
+      "kind": "navigation",
+      "items": [
+        { "label": "Accueil", "page": "home" },
+        { "label": "Réserver", "page": "booking-1" }
+      ]
+    },
+    "site/nav.cta": { "kind": "text", "text": "Réserver" },
+    "site/site.logoImage": {
+      "kind": "media",
+      "src": "/media/dar-minimal-fixture/logo.svg",
+      "alt": "Dar"
+    },
+
+    "home/seo.title": { "kind": "text", "text": "Accueil" },
+    "home/hero.title": { "kind": "heading", "text": "Une maison au cœur de la médina" },
+    "home/hero.image": {
+      "kind": "media",
+      "src": "/media/dar-minimal-fixture/hero.png",
+      "alt": "La cour"
+    },
+    "home/rooms.title": { "kind": "heading", "text": "Chambres" },
+
+    "booking-1/steps.step": { "kind": "text", "text": "ÉTAPE 1 SUR 2" },
+    "booking-1/steps.title": { "kind": "heading", "text": "Vos dates" },
+    "booking-2/steps.step": { "kind": "text", "text": "ÉTAPE 2 SUR 2" },
+    "booking-2/steps.title": { "kind": "heading", "text": "Vos coordonnées" }
+  }
+}

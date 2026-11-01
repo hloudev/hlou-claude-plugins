@@ -1,0 +1,99 @@
+{
+  "$schema": "../../../renderer/spec/json-schema/page.schema.json",
+  "path": "/",
+  "title": "Accueil",
+  "status": "ready",
+  "position": 0,
+  "slots": [{ "key": "seo.title", "kind": "text" }],
+  "sections": [
+    { "key": "header", "label": "Header", "slots": [] },
+    {
+      "key": "hero",
+      "label": "Hero",
+      "slots": [
+        { "key": "hero.title", "kind": "heading" },
+        { "key": "hero.image", "kind": "media" }
+      ]
+    },
+    {
+      "key": "rooms",
+      "label": "Rooms",
+      "slots": [{ "key": "rooms.title", "kind": "heading" }]
+    }
+  ],
+  "document": {
+    "root": "root",
+    "rootProps": {},
+    "nodes": {
+      "root": {
+        "id": "root",
+        "type": "root",
+        "parent": null,
+        "slot": "",
+        "order": "a0",
+        "props": {}
+      },
+      "instance:header": {
+        "id": "instance:header",
+        "type": "instance",
+        "parent": "root",
+        "slot": "content",
+        "order": "a0",
+        "section": "header",
+        "props": {},
+        "instanceOf": "header"
+      },
+      "hero-home": {
+        "id": "hero-home",
+        "type": "hero",
+        "parent": "root",
+        "slot": "content",
+        "order": "a1",
+        "role": "hero",
+        "section": "hero",
+        "props": {
+          "eyebrow": "",
+          "title": { "$slot": "hero.title" },
+          "description": { "type": "doc", "content": [] },
+          "image": { "$slot": "hero.image" },
+          "buttons": [],
+          "align": "start",
+          "elements": {
+            "title": { "font": { "family": "KaTeX Size3", "source": "custom" } }
+          }
+        }
+      },
+      "rooms-home": {
+        "id": "rooms-home",
+        "type": "listings",
+        "parent": "root",
+        "slot": "content",
+        "order": "a2",
+        "role": "listing",
+        "section": "rooms",
+        "props": {
+          "source": { "$collection": "rooms" },
+          "title": { "$slot": "rooms.title" },
+          "layout": "grid",
+          "showPrice": false,
+          "mapping": {
+            "titleField": "name",
+            "imageField": "",
+            "metaField": "guests",
+            "priceField": "",
+            "hrefTemplate": ""
+          }
+        }
+      },
+      "instance:footer": {
+        "id": "instance:footer",
+        "type": "instance",
+        "parent": "root",
+        "slot": "content",
+        "order": "a3",
+        "props": {},
+        "instanceOf": "footer"
+      }
+    }
+  }
+}

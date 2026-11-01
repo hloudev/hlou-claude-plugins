@@ -1,9 +1,9 @@
 ---
 name: hlou-figma-handoff
-description: Turn a Figma design into a Hlou handoff bundle (a .zip the Hlou agent builds a site from). Use when the user wants to send/export/prepare a Figma file for Hlou, make a Hlou bundle, or hand a design to Hlou.
+description: Turn a Figma design into a Hlou site — inside a Hlou starter folder (one with hlou/site/site.json), written straight into its site spec; anywhere else, as a Hlou handoff bundle (a .zip the Hlou agent builds a site from). Use when the user wants to send/export/prepare a Figma file for Hlou, build Hlou pages from a Figma frame, make a Hlou bundle, or hand a design to Hlou.
 ---
 
-# Figma → Hlou handoff bundle
+# Figma → Hlou (handoff bundle, or the site spec)
 
 Hlou builds websites with an agent. It can read a Figma file over REST, but it misses
 hidden layers, flows and overlays. You can read the same file through the **Figma MCP**
@@ -11,15 +11,26 @@ and package it as a **« Hlou handoff bundle »**: a zip of self-contained HTML 
 optimised assets, full-frame renders and a `hlou-handoff.json` manifest. Hlou's agent
 then rebuilds the site from it.
 
-The output is **a bundle, not project code**. Figma's `get_design_context` returns
-React and Tailwind: read it as a reference, never ship it.
+**Two targets, one procedure.** Inside a **Hlou starter** (the current directory has
+`hlou/site/site.json`: an exported Hlou project or a fresh starter), the same bundle is
+built as a checked intermediate and then **written into the site spec** (`hlou/site/`)
+and `public/media/`, and compiled with `pnpm hlou:compile` (step 10). Anywhere else, the
+bundle is packed as a zip for Hlou's agent panel (step 9), as before.
+
+The output is **a bundle or spec files, never project code**. Figma's
+`get_design_context` returns React and Tailwind: read it as a reference, never ship it.
 
 ## Where things are
 
 - **`PLUGIN`** — this plugin's folder: `${CLAUDE_PLUGIN_ROOT}` when set, otherwise two
   levels above this file's folder. It holds `scripts/` and `reference/`.
+- **`TARGET`** — `node PLUGIN/scripts/spec-target.mjs detect` in the current directory:
+  `"spec"` in a Hlou starter, `"bundle"` anywhere else. Run it first and say which.
 - **`WORK`** — `_work/<file-slug>/` in the current directory (`<file-slug>`: the Figma
-  file name as a slug). Everything you fetch and write goes here:
+  file name as a slug). **In a starter** (`TARGET` spec), use
+  `${TMPDIR:-/tmp}/hlou-figma-handoff/<file-slug>/` instead: nothing of the work may
+  land in the site folder, which goes back to Hlou. Everything you fetch and write goes
+  here:
 
   ```
   _work/<file-slug>/
@@ -58,7 +69,11 @@ Read `conventions.md` and `example-manifest.json` once before step 3.
    the user to install Figma's MCP server (remote `https://mcp.figma.com/mcp`, or the
    desktop app's server) and authorise it, then stop.
 2. `node -v` is 20 or later.
-3. Ask for the file URL (`figma.com/design/<fileKey>/…`), the page if the file has
+3. `node PLUGIN/scripts/spec-target.mjs detect` → `TARGET`. With `"spec"`, the design's
+   language is the site's `sourceLocale` (ask only if the design is in another one), and
+   `pages` lists the slugs already taken. With a `problem`, fix `hlou/site/site.json`
+   first.
+4. Ask for the file URL (`figma.com/design/<fileKey>/…`), the page if the file has
    several (`get_metadata` without `nodeId` lists them), and the design's language
    (`locale`: `fr`, `en`, `ar`…). Create `WORK`.
 
@@ -246,7 +261,9 @@ node PLUGIN/scripts/validate.mjs WORK/bundle
 ```
 
 It prints `code path message` lines. Fix each and re-run until it prints nothing
-(exit 0). Then:
+(exit 0).
+
+**`TARGET` spec: go to step 10 instead of packing.** Otherwise:
 
 ```bash
 node PLUGIN/scripts/pack.mjs WORK/bundle <file-slug>-hlou-handoff.zip
@@ -254,3 +271,27 @@ node PLUGIN/scripts/pack.mjs WORK/bundle <file-slug>-hlou-handoff.zip
 
 Tell the user the zip's path and to attach it in Hlou's agent panel. Mention anything in
 `NOTES.md` they should check.
+
+## 10. Write the spec (`TARGET` spec only)
+
+Read `PLUGIN/reference/spec-target.md` (what goes where, blocks by section, the rules
+for an existing spec), the starter's own skill `.claude/skills/hlou-site-spec/SKILL.md`
+(the files, keys, blocks and error codes), and `PLUGIN/reference/example-spec/` (the
+contract's minimal fixture written as a spec). Then:
+
+1. **Media**: `node PLUGIN/scripts/spec-target.mjs media WORK/bundle .` copies every
+   asset to `public/media/<file-slug>/` without replacing any file, and prints each
+   `ref`'s spec path. Use those paths.
+2. **Theme**: the colours and fonts into `hlou/site/site.json` › `theme`.
+3. **Pages**: one `hlou/site/pages/<slug>.json` per page and flow step, its sections and
+   slots from the manifest's sections, its document with Hlou blocks bound to the slots.
+4. **Content**: every slot's value, verbatim from the design, in
+   `hlou/site/content/<sourceLocale>.json`; the menu's links in `site/nav.links`.
+5. **Collections**: `hlou/site/collections/<key>.json` with the cards' records.
+6. `pnpm hlou:compile`. Fix every error it prints and run it again until it prints the
+   page count and no error. Never edit `site/` or `hlou/site.lock.json`.
+
+Tell the user which pages, sections, theme roles, media and collections you wrote,
+which locales still lack the new content, to run `pnpm dev` and open
+`/<sourceLocale>/`, and that importing the folder into Hlou (Réglages › Export et
+import) brings it in. Mention anything in `NOTES.md` they should check.

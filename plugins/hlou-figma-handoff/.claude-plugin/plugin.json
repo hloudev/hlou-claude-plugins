@@ -1,7 +1,7 @@
 {
   "name": "hlou-figma-handoff",
-  "version": "1.0.1",
-  "description": "Turn a Figma design into a Hlou handoff bundle (a .zip the Hlou agent builds a site from), through the Figma MCP.",
+  "version": "1.1.0",
+  "description": "Turn a Figma design into a Hlou site through the Figma MCP: written into the site spec inside a Hlou starter, or a handoff bundle (a .zip the Hlou agent builds a site from) anywhere else.",
   "author": {
     "name": "EMIKETIC"
   },

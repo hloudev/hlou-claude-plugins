@@ -37,6 +37,18 @@ or, on Claude Code 2.1.275 or later, in one step:
 /plugin install hlou-figma-handoff --marketplace hloudev/hlou-claude-plugins
 ```
 
+## Two targets
+
+- **Inside a Hlou starter** (a folder with `hlou/site/site.json`: an export of a Hlou
+  project, or a fresh starter), the skill writes the design **into the site spec**:
+  pages, sections, theme colours and fonts, the copy in the source locale, media under
+  `public/media/`, collections. It runs `pnpm hlou:compile` and fixes what it reports,
+  so `pnpm dev` shows the pages and an import brings them into Hlou. Its work files go
+  to a temp folder, never into the site.
+- **Anywhere else**, it writes the handoff bundle zip for Hlou's agent panel, as below.
+
+`node scripts/spec-target.mjs detect` says which one a folder is.
+
 ## Use
 
 Ask Claude Code, in any folder:
@@ -66,6 +78,10 @@ scripts/survey.mjs                get_metadata XML → survey.json (frames, flow
 scripts/validate.mjs              a bundle folder or zip → `code path message` lines
 scripts/pack.mjs                  a bundle folder → a deterministic zip (validates first)
 scripts/clean-svg.mjs             strips the ancestor backgrounds Figma's SVG exports carry
+scripts/spec-target.mjs           the spec target: `detect` a Hlou starter, place a bundle's
+                                  `media` under public/media/ (never replacing a file)
+reference/spec-target.md          bundle → site spec: what goes where, blocks by section
+reference/example-spec/           the contract's minimal fixture, written as a site spec
 scripts/refresh-references.mjs    maintainers: regenerate reference/ from the Hlou repo
 scripts/*.test.mjs                node --test
 ```
@@ -83,8 +99,10 @@ node --test
 ```
 
 Run from this folder. Inside the Hlou repository the tests also check the scripts
-against the contract's own fixtures, the reference files against their sources, and
-that the plugin stays brand-neutral (below); in a published copy those tests skip.
+against the contract's own fixtures, the reference files against their sources, that
+`reference/example-spec/` (its media placed by `spec-target.mjs`) compiles with the
+renderer's own spec compiler, and that the plugin stays brand-neutral (below); in a
+published copy those tests skip.
 
 After the bundle contract or the renderer's icon set changes in the Hlou repository:
 

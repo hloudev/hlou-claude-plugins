@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../renderer/spec/json-schema/collection.schema.json",
+  "name": "Chambres",
+  "fields": [
+    { "key": "name", "label": "Nom", "type": "text", "required": true },
+    { "key": "guests", "label": "Personnes", "type": "number" }
+  ],
+  "records": [
+    {
+      "key": "chambre-atlas",
+      "status": "published",
+      "data": { "name": "Chambre Atlas", "guests": 2 }
+    },
+    {
+      "key": "suite-medina",
+      "status": "published",
+      "data": { "name": "Suite Medina", "guests": 4 }
+    }
+  ]
+}
